@@ -1,118 +1,75 @@
-# 🖐️ Hand Tracking — Filipino Number Recognition
+# Hand Tracker Application
 
-This is a simple computer vision project that detects hand gestures in real time using **MediaPipe** and **OpenCV**, then translates finger positions into Filipino number words.
-
-| Fingers Up                       | Meaning |
-| -------------------------------- | ------- |
-| ✊ none                           | Wala    |
-| ☝️ index                         | Isa     |
-| ✌️ index + middle                | Dalawa  |
-| 🤟 index + middle + ring         | Tatlo   |
-| 🖖 index + middle + ring + pinky | Apat    |
-| 🖐️ all fingers                  | Lima    |
+A real-time hand tracking and gesture analysis application developed in Python utilizing OpenCV, MediaPipe, and Tkinter.
 
 ---
 
-## 📁 Project Overview
+## Technical Architecture & Dependencies
 
-The project is split into small parts so it’s easier to understand:
+This project relies on the **MediaPipe Legacy Solutions API** (`mp.solutions.hands`). Because Google has deprecated and removed this API interface from modern versions, strict version pinning is required. 
 
-* **hand_tracker/** → main logic (detection, gesture reading, drawing)
-* **main.py** → runs the program
-* **tests/** → simple tests for gesture logic
-* **config.py** → settings like thresholds and tuning values
+Executing this application with unsupported environments (e.g., Python 3.12+ or MediaPipe 0.10.15+) will trigger runtime exceptions, specifically: `AttributeError: module 'mediapipe' has no attribute 'solutions'`.
+
+### Validated Environment Specification
+* **Runtime Environment:** Python 3.11.x (64-bit)
+* **Core Libraries:** 
+  * `mediapipe==0.10.9` (Strictly enforced)
+  * `opencv-python`
+  * `pillow`
 
 ---
 
-## 🚀 How to Run
+## Deployment and Setup
 
-### 1. Get the project
+Follow these steps to isolate your dependencies and deploy the project locally on Windows environments.
 
-```bash
-https://github.com/joreese-clyde/handtracker.git
-cd handtracker
+### 1. Initialize the Virtual Environment
+Generate an isolated virtual environment explicitly targeted to a Python 3.11 interpreter using the Python Launcher:
+```cmd
+py -3.11 -m venv .venv
 ```
 
-### 2. Setup environment
-
-```bash
-python -m venv .venv
-```
-
-Activate it:
-
-* Windows:
-
-```bash
+### 2. Activate the Environment
+Isolate your terminal session context to the newly created environment:
+```cmd
 .venv\Scripts\activate
 ```
+*Note: Your terminal prompt prefix will change to `(.venv)` upon successful activation.*
 
-* Mac/Linux:
+### 3. Verify Environment Integrity
+Confirm that the runtime environment is correctly mapped to the specified Python version:
+```cmd
+python --version
+```
+*Expected Output:* `Python 3.11.x`
 
-```bash
-source .venv/bin/activate
+### 4. Install Component Dependencies
+Install the standard dependencies and force-provision the precise version of the MediaPipe wheel asset:
+```cmd
+pip install opencv-python pillow
+pip install --force-reinstall mediapipe==0.10.9
 ```
 
-### 3. Install needed libraries
+---
 
-```bash
-pip install -r requirements.txt
-```
+## Execution
 
-### 4. Download the hand model
-
-```bash
-curl -o hand_landmarker.task "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/latest/hand_landmarker.task"
-```
-
-### 5. Run the app
-
-```bash
+Launch the main application interface entry point from the project root folder:
+```cmd
 python main.py
 ```
 
-Press **ESC** to stop.
-
 ---
 
-##  Optional Controls
+## Troubleshooting
 
-You can change how it runs:
+### Runtime Exception: `AttributeError: module 'mediapipe' has no attribute 'solutions'`
+* **Root Cause:** The active environment is utilizing an unaligned Python version (such as Python 3.14) or has pulled a newer MediaPipe distribution downstream.
+* **Resolution:** Verify your version constraint profiles via `pip show mediapipe`. Rectify mismatches by executing:
+  ```cmd
+  pip install --force-reinstall mediapipe==0.10.9
+  ```
 
-```bash
-python main.py --camera 0 --num-hands 2 --no-fps --no-skeleton
-```
-
-* `--camera` → choose webcam
-* `--num-hands` → how many hands to detect
-* `--no-fps` → hide FPS display
-* `--no-skeleton` → hide hand lines
-
----
-
-##  Testing
-
-If you want to check the gesture logic:
-
-```bash
-pytest tests/ -v
-```
-
----
-
-##  Idea Behind It
-
-The project works by:
-
-1. Detecting hand landmarks using MediaPipe
-2. Checking which fingers are up
-3. Matching the pattern to a number word in Filipino
-4. Displaying it on screen in real time
-
----
-
-##  Notes
-
-* Designed for learning computer vision basics
-* Focused on clean separation of logic (detection vs gesture rules)
-* Works best with good lighting and a clear camera view
+### Activation Fault: `The system cannot find the path specified`
+* **Root Cause:** The targeted activation script destination does not exist within the active working directory structure.
+* **Resolution:** Ensure step 1 executed flawlessly without syntax exceptions and that the `.venv` directory tree physically resides inside your local repository workspace root.
