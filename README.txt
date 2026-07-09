@@ -311,7 +311,13 @@ Tkinter
 
 # License
 
-This project is intended for educational and development purposes.
+This project is created for educational and academic purposes.
+
+The source code may be used, modified, and studied for learning, research, and personal development. Users are encouraged to explore the implementation, understand the technologies used, and improve the project for educational advancement.
+
+This project is not intended for commercial distribution without proper authorization from the original developer.
+
+By using this project, users acknowledge that it is provided as a learning resource and should be used responsibly.
 
 ```
 ```
