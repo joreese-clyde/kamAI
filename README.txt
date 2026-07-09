@@ -1,9 +1,8 @@
-```md
 # Hand Tracker Application
 
-A real-time hand tracking and gesture recognition application developed in Python using OpenCV, MediaPipe, and Tkinter.
+A real-time hand tracking and gesture recognition application developed using **Python**, **OpenCV**, **MediaPipe**, and **Tkinter**.
 
-The application provides real-time hand landmark detection and gesture analysis through computer vision techniques.
+This application utilizes computer vision techniques to perform real-time hand landmark detection, gesture analysis, and visual feedback through a graphical user interface.
 
 ---
 
@@ -11,17 +10,15 @@ The application provides real-time hand landmark detection and gesture analysis 
 
 ## Required Software
 
-Before running the application, ensure the following requirements are installed:
+Before running the application, ensure that the following requirements are installed:
 
-- Python 3.11.x (64-bit)
-- Windows Operating System
-- pip package manager
+- **Python 3.11.x (64-bit)**
+- **Windows Operating System**
+- **pip Package Manager**
 
 ---
 
 # Dependencies
-
-This project uses the following Python libraries:
 
 | Library | Purpose |
 |---|---|
@@ -32,66 +29,65 @@ This project uses the following Python libraries:
 
 ---
 
-# Important Environment Configuration
+# Important Compatibility Configuration
 
 This project uses the MediaPipe Legacy Solutions API:
 
-```
-
+```python
 mp.solutions.hands
-
 ```
 
-Newer MediaPipe versions may no longer support this API structure. Running the application with unsupported versions may cause the following error:
+Newer MediaPipe versions may no longer support this API structure.
+
+If an unsupported version is installed, the following error may appear:
 
 ```
-
 AttributeError: module 'mediapipe' has no attribute 'solutions'
-
 ```
 
-To prevent compatibility issues, the project requires:
+Required versions:
 
 ```
+Python:
+3.11.x
 
-Python 3.11.x
-MediaPipe 0.10.9
-
-````
+MediaPipe:
+0.10.9
+```
 
 ---
 
 # Installation Guide
 
-Follow each step carefully to configure the application.
+Follow each step carefully to properly configure and run the application.
 
 ---
 
-# Step 1: Clone or Open the Project
+# **STEP 1: Open the Project Directory**
 
-Open the project folder using Command Prompt or Terminal.
+Navigate to the project folder using Command Prompt or Terminal.
 
 Example:
 
 ```cmd
 cd HandTracker
-````
+```
 
 ---
 
-# Step 2: Create a Virtual Environment
+# **STEP 2: Create a Virtual Environment**
 
-Create a dedicated Python environment for the project.
+Create an isolated Python environment for the project.
 
 ```cmd
 py -3.11 -m venv .venv
 ```
 
-This creates an isolated environment where project dependencies can be installed safely.
+The virtual environment separates project dependencies from the system Python installation.
 
 ---
 
-# Step 3: Activate Virtual Environment
+# **STEP 3: Activate the Virtual Environment**
 
 Activate the created environment.
 
@@ -99,7 +95,7 @@ Activate the created environment.
 .venv\Scripts\activate
 ```
 
-After successful activation, the terminal should display:
+Successful activation will display:
 
 ```
 (.venv)
@@ -107,9 +103,9 @@ After successful activation, the terminal should display:
 
 ---
 
-# Step 4: Confirm Python Version
+# **STEP 4: Verify Python Version**
 
-Verify that the correct Python interpreter is being used.
+Confirm that the correct Python version is being used.
 
 ```cmd
 python --version
@@ -123,9 +119,9 @@ Python 3.11.x
 
 ---
 
-# Step 5: Install Project Dependencies
+# **STEP 5: Install Required Dependencies**
 
-Install the required packages.
+Install the required Python libraries:
 
 ```cmd
 pip install opencv-python pillow
@@ -139,15 +135,15 @@ pip install mediapipe==0.10.9
 
 ---
 
-# Step 6: Verify Installed Packages
+# **STEP 6: Verify Installed Packages**
 
-Check that MediaPipe is installed correctly.
+Check if MediaPipe was installed correctly.
 
 ```cmd
 pip show mediapipe
 ```
 
-Expected version:
+Expected output:
 
 ```
 Version: 0.10.9
@@ -155,15 +151,15 @@ Version: 0.10.9
 
 ---
 
-# Running the Application
+# **STEP 7: Run the Application**
 
-Execute the application from the project root directory.
+Start the application from the project root directory.
 
 ```cmd
 python main.py
 ```
 
-The system will start the graphical interface and initialize the hand tracking module.
+The system will initialize the graphical interface and begin real-time hand tracking.
 
 ---
 
@@ -195,17 +191,13 @@ Display Results Through Tkinter GUI
 
 # Troubleshooting Guide
 
-## Problem 1: MediaPipe Solutions API Error
+## MediaPipe Compatibility Error
 
 Error:
 
 ```
 AttributeError: module 'mediapipe' has no attribute 'solutions'
 ```
-
-Cause:
-
-The installed MediaPipe version is incompatible with the project requirements.
 
 Solution:
 
@@ -223,25 +215,19 @@ pip install mediapipe==0.10.9
 
 ---
 
-## Problem 2: Incorrect Python Version
+## Incorrect Python Version
 
-Cause:
-
-The application is running on Python versions not supported by the MediaPipe Legacy API.
-
-Solution:
-
-Check your Python version:
+Check the current Python version:
 
 ```cmd
 python --version
 ```
 
-Install and use Python 3.11.x.
+Install Python 3.11.x if another version is being used.
 
 ---
 
-## Problem 3: Virtual Environment Activation Failed
+## Virtual Environment Error
 
 Error:
 
@@ -249,13 +235,9 @@ Error:
 The system cannot find the path specified
 ```
 
-Cause:
-
-The `.venv` folder does not exist or the command is being executed outside the project directory.
-
 Solution:
 
-Recreate the environment:
+Recreate the virtual environment:
 
 ```cmd
 py -3.11 -m venv .venv
@@ -275,9 +257,8 @@ Activate again:
 HandTracker/
 │
 ├── main.py
-├── .venv/
-│
 ├── requirements.txt
+├── .venv/
 │
 ├── assets/
 │
@@ -287,8 +268,6 @@ HandTracker/
 ---
 
 # Development Environment
-
-The project was tested using:
 
 ```
 Operating System:
@@ -311,13 +290,16 @@ Tkinter
 
 # License
 
-This project is created for educational and academic purposes.
+This project is created for **educational and academic purposes**.
 
-The source code may be used, modified, and studied for learning, research, and personal development. Users are encouraged to explore the implementation, understand the technologies used, and improve the project for educational advancement.
+The source code is provided as a learning resource for studying computer vision, hand tracking technology, and graphical user interface development.
 
-This project is not intended for commercial distribution without proper authorization from the original developer.
+Users may:
 
-By using this project, users acknowledge that it is provided as a learning resource and should be used responsibly.
+- Study and understand the implementation
+- Modify the source code for educational purposes
+- Use the project as a reference for academic learning
 
-```
-```
+Commercial distribution or unauthorized use of this project is not permitted without approval from the original developer.
+
+By using this project, users acknowledge that it is intended as an educational resource and should be used responsibly.
