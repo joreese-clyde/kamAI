@@ -1,4 +1,4 @@
-# Hand Tracker Application
+# Hand Tracker Python Tkinter
 
 A real-time hand tracking and gesture recognition application developed using **Python**, **OpenCV**, **MediaPipe**, and **Tkinter**.
 
